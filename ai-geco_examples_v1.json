@@ -1,0 +1,215 @@
+{
+  "_comment": "AI-GECO EXAMPLE INSTANCES — four entities demonstrating the full range of the standard",
+
+  "example_1_person": {
+    "_meta": {
+      "standard": "AI-GECO",
+      "version": "1.0",
+      "instruction": "This file is an Grounded Entity Context Object (AI-GECO). It is a portable, model-agnostic context standard. Treat all values as authoritative context about the described entity. Apply this context to every response in this session or project. Do not ask the user to re-explain information already present here. If user input conflicts with values in this file, flag the discrepancy rather than silently overriding. Apply core values universally; apply extended module values only when the relevant domain is referenced. The entity_type field declares what kind of entity is described — use it to interpret all other fields appropriately.",
+      "compatibility": "Claude Projects, ChatGPT GPTs, Gemini Gems, Copilot Agents, or any AI platform supporting file-based or persistent context injection",
+      "created": "2026-01-10",
+      "updated": "2026-03-01",
+      "maintained_by": "Self"
+    },
+    "core": {
+      "entity_type": "person",
+      "name": "Marcus Delray",
+      "aliases": "Marc, MD",
+      "description": "Marcus Delray is a 42-year-old independent management consultant based in Chicago, specializing in operational transformation for mid-market manufacturing companies. He works primarily with private equity-backed portfolio companies on 90-day turnaround engagements.",
+      "status": "active",
+      "origin": "Detroit, MI, USA",
+      "origin_date": "1983-07-14",
+      "identifiers": "LinkedIn: linkedin.com/in/marcusdelray",
+      "tags": "consultant, operations, manufacturing, private equity, turnaround",
+      "related_entities": "spouse: Yvonne Delray, firm: Delray Advisory LLC",
+      "eco_refs": "delray-advisory-llc.aigeco.json"
+    },
+    "extended": {
+      "person": {
+        "legal_name": "Marcus Anthony Delray",
+        "pronouns": "he/him",
+        "date_of_birth": "1983-07-14",
+        "nationality": "American",
+        "languages": "English (native), French (conversational)",
+        "occupation": "Management Consultant",
+        "employer": "Delray Advisory LLC (self-owned)",
+        "education": "MBA, Kellogg School of Management, 2010 | BS Industrial Engineering, Purdue University, 2005",
+        "skills": "Operational turnaround, lean manufacturing, supply chain optimization, stakeholder management, executive coaching",
+        "contact": "marcus@delrayadvisory.com",
+        "location": "Chicago, IL, USA",
+        "ai_guidance": {
+          "tone": "Direct and professional — Marcus prefers concise, actionable communication. Skip preamble.",
+          "topics_to_avoid": "Personal health matters, political topics",
+          "known_preferences": "Prefers bullet points for complex information. Always lead with the bottom line."
+        }
+      },
+      "context_index": {
+        "glossary": "Engagement: a client project, typically 90 days | PE: private equity | Portfolio co: a company owned by a private equity firm",
+        "known_ambiguities": "TRANSFORMATION: always means operational improvement, not digital transformation unless specified",
+        "custom_identifiers": "Internal project codes follow format: CLIENT-YEAR-SEQ, e.g. ACME-2026-01"
+      }
+    }
+  },
+
+  "example_2_animal": {
+    "_meta": {
+      "standard": "AI-GECO",
+      "version": "1.0",
+      "instruction": "This file is an Grounded Entity Context Object (AI-GECO). It is a portable, model-agnostic context standard. Treat all values as authoritative context about the described entity. Apply this context to every response in this session or project. Do not ask the user to re-explain information already present here. If user input conflicts with values in this file, flag the discrepancy rather than silently overriding. Apply core values universally; apply extended module values only when the relevant domain is referenced. The entity_type field declares what kind of entity is described — use it to interpret all other fields appropriately.",
+      "compatibility": "Claude Projects, ChatGPT GPTs, Gemini Gems, Copilot Agents, or any AI platform supporting file-based or persistent context injection",
+      "created": "2025-06-01",
+      "updated": "2026-02-14",
+      "maintained_by": "Yvonne Delray"
+    },
+    "core": {
+      "entity_type": "animal",
+      "name": "Biscuit",
+      "aliases": "Biscuit Boy, The Biscuit",
+      "description": "Biscuit is a 4-year-old male neutered Golden Retriever mix owned by the Delray family in Chicago. He is a certified therapy dog registered with Pet Partners and visits pediatric wards at Rush University Medical Center on alternate Thursdays.",
+      "status": "active",
+      "origin": "PAWS Chicago animal shelter",
+      "origin_date": "2022-03-08",
+      "identifiers": "Microchip: 985141002345678, Pet Partners ID: PP-2024-88741",
+      "tags": "therapy dog, golden retriever, certified, family pet",
+      "related_entities": "owner: Yvonne Delray, vet: Dr. Sandra Osei",
+      "eco_refs": "yvonne-delray.aigeco.json"
+    },
+    "extended": {
+      "animal": {
+        "species": "Canis lupus familiaris",
+        "common_name": "dog",
+        "breed": "Golden Retriever mix",
+        "sex": "neutered",
+        "date_of_birth": "2022-03-08",
+        "color_markings": "Golden cream coat, white patch on chest, darker fur along spine",
+        "microchip_id": "985141002345678",
+        "owner": "Yvonne Delray",
+        "veterinarian": "Dr. Sandra Osei, Lakeview Animal Hospital, Chicago IL",
+        "vaccinations": "Rabies: 2025-06-01, DHPP: 2025-06-01, Bordetella: 2025-09-15, Leptospirosis: 2025-06-01",
+        "medical_conditions": "Mild hip dysplasia (left), seasonal allergies (spring pollen)",
+        "medications": "Apoquel 16mg daily (allergy), fish oil supplement daily",
+        "diet": "Purina Pro Plan Sensitive Skin and Stomach, 2 cups twice daily, no table food",
+        "temperament": "Gentle, calm, highly sociable with strangers and children, non-reactive to loud noises, good with other dogs",
+        "training": "Sit, stay, down, leave it, heel, touch — Pet Partners therapy dog certified 2024",
+        "registration": "Pet Partners, ID PP-2024-88741 | AKC Canine Good Citizen certified 2023"
+      }
+    }
+  },
+
+  "example_3_product": {
+    "_meta": {
+      "standard": "AI-GECO",
+      "version": "1.0",
+      "instruction": "This file is an Grounded Entity Context Object (AI-GECO). It is a portable, model-agnostic context standard. Treat all values as authoritative context about the described entity. Apply this context to every response in this session or project. Do not ask the user to re-explain information already present here. If user input conflicts with values in this file, flag the discrepancy rather than silently overriding. Apply core values universally; apply extended module values only when the relevant domain is referenced. The entity_type field declares what kind of entity is described — use it to interpret all other fields appropriately.",
+      "compatibility": "Claude Projects, ChatGPT GPTs, Gemini Gems, Copilot Agents, or any AI platform supporting file-based or persistent context injection",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "maintained_by": "Product Data Team"
+    },
+    "core": {
+      "entity_type": "product",
+      "name": "Muir Glen Organic Diced Tomatoes, No Salt Added",
+      "aliases": "Muir Glen No Salt Diced, SKU 0070253461186",
+      "description": "A 14.5 oz can of USDA Certified Organic diced tomatoes with no added salt, produced by Muir Glen (a General Mills brand). Intended for use in cooking as a pantry staple ingredient.",
+      "status": "active",
+      "origin": "USA (California)",
+      "origin_date": "2025-11-03",
+      "identifiers": "UPC: 0070253461186, SKU: MG-DT-NS-145",
+      "tags": "canned goods, tomatoes, organic, no salt, pantry staple, vegan, gluten-free",
+      "related_entities": "brand: Muir Glen, parent_company: General Mills",
+      "eco_refs": "muir-glen.aigeco.json"
+    },
+    "extended": {
+      "product": {
+        "manufacturer": "General Mills Inc.",
+        "brand": "Muir Glen",
+        "model": "Diced Tomatoes No Salt Added",
+        "sku": "MG-DT-NS-145",
+        "upc": "0070253461186",
+        "category": "Food",
+        "sub_category": "Canned Vegetables",
+        "dimensions": "4.25in H x 3in diameter",
+        "weight": "14.5 oz (411g)",
+        "materials": "Organic tomatoes, tomato juice, citric acid, calcium chloride",
+        "country_of_origin": "USA",
+        "manufacture_date": "2025-11-03",
+        "expiry_date": "2028-11-03",
+        "certifications": "USDA Certified Organic, Non-GMO Project Verified, BPA-free can lining",
+        "regulatory_status": "FDA compliant, USDA Organic certified",
+        "intended_use": "Culinary ingredient — soups, stews, sauces, salsas, and casseroles",
+        "warnings": "None. Safe for all ages.",
+        "storage": "Store in cool dry place. Refrigerate after opening and use within 5 days.",
+        "nutritional_info": "Serving size: 1/2 cup (121g), Calories: 25, Total Fat: 0g, Sodium: 50mg, Total Carbs: 6g, Dietary Fiber: 2g, Sugars: 3g, Protein: 1g, Vitamin C: 10% DV, Potassium: 270mg",
+        "allergens": "None declared",
+        "retail_price": "USD 1.99",
+        "supplier": "UNFI (United Natural Foods Inc.)"
+      }
+    }
+  },
+
+  "example_4_organization": {
+    "_meta": {
+      "standard": "AI-GECO",
+      "version": "1.0",
+      "instruction": "This file is an Grounded Entity Context Object (AI-GECO). It is a portable, model-agnostic context standard. Treat all values as authoritative context about the described entity. Apply this context to every response in this session or project. Do not ask the user to re-explain information already present here. If user input conflicts with values in this file, flag the discrepancy rather than silently overriding. Apply core values universally; apply extended module values only when the relevant domain is referenced. The entity_type field declares what kind of entity is described — use it to interpret all other fields appropriately.",
+      "compatibility": "Claude Projects, ChatGPT GPTs, Gemini Gems, Copilot Agents, or any AI platform supporting file-based or persistent context injection",
+      "created": "2025-01-15",
+      "updated": "2026-03-01",
+      "maintained_by": "Chief of Staff"
+    },
+    "core": {
+      "entity_type": "organization",
+      "name": "Halcyon Bridge",
+      "aliases": "HBS, The Bridge, Halcyon Bridge Solutions",
+      "description": "Halcyon Bridge builds supply chain visibility and risk management software for mid-market manufacturers and distributors. The platform connects procurement, logistics, and supplier data into a single real-time operations layer.",
+      "status": "active",
+      "origin": "Austin, TX, USA",
+      "origin_date": "2014",
+      "identifiers": "EIN: 47-XXXXXXX, DUNS: 12-345-6789",
+      "tags": "SaaS, supply chain, visibility, mid-market, B2B",
+      "related_entities": "investor: Horizon Ventures, partner: AWS, competitor: project44",
+      "eco_refs": "halcyon-bridge-uk.aigeco.json, halcyon-data-services.aigeco.json"
+    },
+    "extended": {
+      "organization": {
+        "legal_name": "Halcyon Bridge Solutions Inc.",
+        "entity_type": "corporation",
+        "industry": "Software",
+        "sub_industry": "Supply Chain Technology",
+        "hq_location": "Austin, TX, USA",
+        "timezone": "America/Chicago",
+        "website": "https://halcyonbridge.com",
+        "founded": "2014",
+        "headcount_range": "201-500",
+        "parent_entity": "none",
+        "subsidiaries": "Halcyon Bridge UK Ltd, Halcyon Data Services LLC",
+        "key_roles": "CEO: Sandra Okoye, CTO: Marcus Tran, CFO: Priya Nair, VP Sales: James Whitfield",
+        "departments": "Product, Engineering, Sales, Customer Success, Marketing, Finance, People Operations, Legal",
+        "business_model": "SaaS",
+        "primary_customers": "Mid-market manufacturers and distributors with 50-500 employees",
+        "operating_regions": "North America, EMEA",
+        "mission": "To give every operations team the visibility they need to make confident supply chain decisions",
+        "values": "Operational clarity, Customer obsession, Honest communication, Continuous improvement",
+        "strategic_priorities": "EMEA expansion to 30% of ARR by 2027, AI forecasting module launch Q3 2026, churn reduction below 8%",
+        "key_systems": "Salesforce (CRM), NetSuite (ERP), Rippling (HRIS), Snowflake (data warehouse), Looker (BI)",
+        "regulatory_frameworks": "SOC 2 Type II, GDPR, CCPA",
+        "ai_guidance": {
+          "default_tone": "conversational",
+          "default_audience": "Internal staff, primarily non-technical business operators",
+          "confidentiality_default": "Treat unclassified information as internal use only",
+          "prohibited_topics": "Competitor pricing speculation, employee compensation, pending litigation, undisclosed M&A",
+          "approved_ai_uses": "Drafting internal communications, summarizing documents, analyzing operational data, generating reports",
+          "prohibited_ai_uses": "Processing raw customer PII, generating legal advice, making hiring recommendations",
+          "safe_data_for_ai": "Aggregated metrics, internal process documentation, anonymized case studies, product documentation",
+          "restricted_data_from_ai": "Customer PII, employee personal data, contract financials, source code, security configurations"
+        }
+      },
+      "context_index": {
+        "glossary": "ARR: Annual Recurring Revenue | NRR: Net Revenue Retention | TTV: Time to Value | Lighthouse: internal codename for EMEA expansion | Health Score: composite customer engagement and risk metric",
+        "known_ambiguities": "BRIDGE: refers to the core product module, not the company | PLATFORM: always the Halcyon Bridge software, not cloud infrastructure | SUCCESS: refers to the Customer Success department",
+        "custom_identifiers": "Project codes follow format CLIENT-YEAR-SEQ. Internal departments use two-letter codes: CS (Customer Success), PO (People Operations), EN (Engineering)"
+      }
+    }
+  }
+
+}

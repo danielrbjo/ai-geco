@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-geco/v1.0.0",
+  "title": "AI-GECO — Grounded Entity Context Object",
+  "description": "A portable, model-agnostic standard for grounding AI language models with authoritative context about any entity — a person, animal, product, organization, place, creative work, or other — in a structured JSON format optimized for AI platform context injection.",
+  "version": "1.0.0"
+  "_name": "AI-GECO",,
+
+  "_meta": {
+    "standard": "AI-GECO",
+    "version": "1.0",
+    "instruction": "This file is an Grounded Entity Context Object (AI-GECO). It is a portable, model-agnostic context standard. Treat all values as authoritative context about the described entity. Apply this context to every response in this session or project. Do not ask the user to re-explain information already present here. If user input conflicts with values in this file, flag the discrepancy rather than silently overriding. Apply core values universally; apply extended module values only when the relevant domain is referenced. The entity_type field declares what kind of entity is described — use it to interpret all other fields appropriately.",
+    "compatibility": "Claude Projects, ChatGPT GPTs, Gemini Gems, Copilot Agents, or any AI platform supporting file-based or persistent context injection",
+    "created": "YYYY-MM-DD",
+    "updated": "YYYY-MM-DD",
+    "maintained_by": "Name, role, or system that maintains this file"
+  },
+
+  "core": {
+    "entity_type": "person | animal | product | organization | place | creative_work | other",
+    "name": "Primary name or identifier of the entity",
+    "aliases": "Other names, nicknames, brand names, former names, or abbreviations",
+    "description": "2-3 sentence plain-language summary of what or who this entity is. Written for AI comprehension — precise, factual, not promotional.",
+    "status": "Current state of the entity — e.g. active, inactive, deceased, discontinued, archived, draft",
+    "origin": "Where or how the entity came to exist — birthplace, founding location, manufacturer, country of origin, etc.",
+    "origin_date": "YYYY or YYYY-MM-DD — birth date, founding date, manufacture date, publication date, etc.",
+    "identifiers": "Any formal identifiers — e.g. SSN (masked), EIN, ISBN, UPC, registration number, passport number, tag number",
+    "tags": "Freeform comma-separated keywords that aid classification or retrieval",
+    "related_entities": "Other ECD entities this entity is meaningfully connected to — e.g. owner: Jane Smith, parent_org: Acme Corp, breed_registry: AKC",
+    "eco_refs": "Paths or URIs to related ECD files — e.g. owner.aigeco.json, parent_company.aigeco.json"
+  },
+
+  "extended": {
+
+    "person": {
+      "_suggested_for": "entity_type: person",
+      "legal_name": "Full legal name if different from core.name",
+      "pronouns": "e.g. she/her, he/him, they/them",
+      "date_of_birth": "YYYY-MM-DD",
+      "nationality": "Country or countries of citizenship",
+      "languages": "Languages spoken — e.g. English (native), Spanish (fluent)",
+      "occupation": "Current role or profession",
+      "employer": "Current employer or organization",
+      "education": "Highest or most relevant education — e.g. MBA, Harvard Business School, 2012",
+      "skills": "Comma-separated key skills or areas of expertise",
+      "contact": "Preferred contact method or public contact info",
+      "location": "Current city, state, country of residence",
+      "ai_guidance": {
+        "tone": "How the AI should communicate with or about this person",
+        "topics_to_avoid": "Subjects the AI should not raise or engage with",
+        "known_preferences": "Communication or interaction preferences the AI should respect"
+      }
+    },
+
+    "animal": {
+      "_suggested_for": "entity_type: animal",
+      "species": "e.g. Canis lupus familiaris",
+      "common_name": "e.g. dog, cat, horse",
+      "breed": "Specific breed or mix",
+      "sex": "male | female | unknown | neutered | spayed",
+      "date_of_birth": "YYYY-MM-DD or approximate year",
+      "color_markings": "Physical description of coloring and markings",
+      "microchip_id": "Microchip or tag number",
+      "owner": "Name of primary owner or caretaker",
+      "veterinarian": "Name and practice of primary vet",
+      "vaccinations": "Vaccine name: date, vaccine name: date",
+      "medical_conditions": "Known conditions or diagnoses",
+      "medications": "Current medications and dosages",
+      "diet": "Diet type and feeding schedule",
+      "temperament": "Behavioral description relevant to care and handling",
+      "training": "Known commands, certifications, or training level",
+      "registration": "Registry and registration number if applicable"
+    },
+
+    "product": {
+      "_suggested_for": "entity_type: product",
+      "manufacturer": "Company that produced the item",
+      "brand": "Brand name if different from manufacturer",
+      "model": "Model name or number",
+      "sku": "Stock keeping unit or product code",
+      "upc": "Universal Product Code or barcode",
+      "category": "Product category — e.g. food, electronics, apparel, pharmaceutical",
+      "sub_category": "More specific classification",
+      "dimensions": "Physical dimensions — e.g. 4.5in x 3in x 2in",
+      "weight": "e.g. 14.5 oz",
+      "materials": "Primary materials or ingredients",
+      "country_of_origin": "Where the product was manufactured",
+      "manufacture_date": "YYYY-MM-DD or batch code",
+      "expiry_date": "YYYY-MM-DD if applicable",
+      "certifications": "Regulatory or quality certifications — e.g. USDA Organic, CE, FDA approved",
+      "regulatory_status": "Approval or compliance status",
+      "intended_use": "What the product is designed for",
+      "warnings": "Safety warnings or contraindications",
+      "storage": "Storage or handling requirements",
+      "nutritional_info": "For food products — key nutritional values as comma-separated pairs",
+      "allergens": "Declared allergens",
+      "retail_price": "Standard retail price and currency",
+      "supplier": "Primary supplier or distributor"
+    },
+
+    "organization": {
+      "_suggested_for": "entity_type: organization",
+      "legal_name": "Full legal entity name if different from core.name",
+      "entity_type": "corporation | llc | nonprofit | government | partnership | cooperative",
+      "industry": "Primary industry",
+      "sub_industry": "More specific sector",
+      "hq_location": "City, State, Country",
+      "timezone": "IANA timezone of headquarters",
+      "website": "https://",
+      "founded": "YYYY",
+      "headcount_range": "1-10 | 11-50 | 51-200 | 201-500 | 500+",
+      "parent_entity": "Parent company or governing body if applicable",
+      "subsidiaries": "Subsidiary or division names, comma-separated",
+      "key_roles": "Title: Name, Title: Name",
+      "departments": "Comma-separated department names",
+      "business_model": "SaaS | Services | Product | Nonprofit | Government | Marketplace | Hybrid",
+      "primary_customers": "Description of primary customer or beneficiary type",
+      "operating_regions": "Comma-separated regions of operation",
+      "mission": "Core purpose statement",
+      "values": "Comma-separated organizational values",
+      "strategic_priorities": "Current top priorities, comma-separated",
+      "key_systems": "Critical software systems — e.g. Salesforce (CRM), NetSuite (ERP)",
+      "regulatory_frameworks": "Applicable frameworks — e.g. HIPAA, GDPR, SOC 2",
+      "ai_guidance": {
+        "default_tone": "formal | conversational | technical | adaptive",
+        "default_audience": "Who the AI should assume it is addressing",
+        "confidentiality_default": "How to treat unclassified information by default",
+        "prohibited_topics": "Topics the AI must not address in this context",
+        "approved_ai_uses": "Approved use cases, comma-separated",
+        "prohibited_ai_uses": "Prohibited use cases, comma-separated",
+        "safe_data_for_ai": "Data categories the AI may freely process",
+        "restricted_data_from_ai": "Data categories the AI must never process"
+      }
+    },
+
+    "place": {
+      "_suggested_for": "entity_type: place",
+      "place_type": "e.g. residence, commercial property, landmark, city, region, venue, park",
+      "address": "Full address if applicable",
+      "coordinates": "Latitude, Longitude — e.g. 30.2672, -97.7431",
+      "jurisdiction": "Governing city, county, state, country",
+      "timezone": "IANA timezone identifier",
+      "area": "Size — e.g. 2,400 sq ft, 14 acres, 45 sq km",
+      "owner": "Current owner or governing authority",
+      "operator": "Entity responsible for operations if different from owner",
+      "capacity": "Maximum occupancy or capacity if applicable",
+      "access": "Public | Private | Restricted | Members only",
+      "hours": "Operating hours if applicable",
+      "established": "YYYY — when the place was established, built, or incorporated",
+      "notable_features": "Key physical or functional characteristics",
+      "zoning": "Zoning classification if applicable",
+      "historical_significance": "Any historical designation or significance"
+    },
+
+    "creative_work": {
+      "_suggested_for": "entity_type: creative_work",
+      "work_type": "e.g. book, film, album, painting, software, podcast, article",
+      "creator": "Primary author, director, artist, or developer",
+      "contributors": "Other key contributors, comma-separated",
+      "publisher": "Publisher, studio, label, or distributor",
+      "publication_date": "YYYY-MM-DD or YYYY",
+      "edition_version": "Edition, version, or release number",
+      "language": "Primary language",
+      "genre": "Genre or category",
+      "format": "Physical or digital format — e.g. hardcover, streaming, vinyl, ebook",
+      "isbn_issn": "ISBN, ISSN, or equivalent identifier",
+      "synopsis": "Brief description of content or subject matter",
+      "audience": "Intended audience",
+      "content_rating": "Age or content rating if applicable",
+      "awards": "Notable awards or recognitions",
+      "copyright": "Copyright holder and year",
+      "license": "License type if applicable — e.g. CC BY 4.0, All rights reserved"
+    },
+
+    "other": {
+      "_suggested_for": "entity_type: other",
+      "_note": "No predefined fields. Add any key:value pairs relevant to the entity using x_[namespace]_[fieldname] convention for custom fields.",
+      "x_custom_field_example": "Replace with fields relevant to your entity type"
+    },
+
+    "context_index": {
+      "_suggested_for": "all entity types",
+      "glossary": "TERM: definition | TERM: definition",
+      "known_ambiguities": "TERM: what it means here vs common usage | TERM: clarification",
+      "custom_identifiers": "Any non-standard identifiers or naming conventions specific to this entity"
+    }
+
+  }
+
+}
